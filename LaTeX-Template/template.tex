@@ -1,0 +1,78 @@
+\documentclass [a4paper, 11pt] {article}
+
+%packages
+\usepackage [ngerman] {babel}
+\usepackage [T1] {fontenc}
+\usepackage [utf8] {inputenc}
+\usepackage {graphicx}
+\usepackage {amsmath}
+\usepackage {amssymb}
+\usepackage {amstext}
+\usepackage {amsthm}
+\usepackage {listings}
+\usepackage {tikz}
+\usepackage {hyperref}
+
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\usepackage{lipsum}
+\usepackage{ifthen}
+
+\pagestyle{fancy}
+
+%document configuration
+\newcommand{\homeworkNum}{00}
+\newcommand{\studentOne}{Name Surname}
+\newcommand{\studentTwo} {Name Surname}
+\newcommand{\matrikelNrStOne}{xxxxxx}
+\newcommand{\matrikelNrStTwo}{xxxxxx}
+\newcommand{\mailStOne}{xxxx.xxxx@student.uni-tuebingen.de}
+\newcommand{\mailStTwo}{xxxx.xxxx@student.uni-tuebingen.de}
+
+
+
+\lhead{\begin{tabular}{l}
+Course Name\\
+Winter/Summer Term 20xx/xx\\
+Assignment \homeworkNum
+\end{tabular}}
+\rhead{\begin{tabular}{lr}
+	\studentOne & \matrikelNrStOne \\
+	\studentTwo & \matrikelNrStTwo \\
+\end{tabular}}
+
+\begin{document}
+
+\title{\vspace{-1.5cm}\textbf{Assignment \homeworkNum} \\ 
+	Course name}
+\author{\begin{tabular}{lrl}
+	\studentOne & \matrikelNrStOne & \href{mailto:\mailStOne}{\mailStOne} \\
+	\studentTwo & \matrikelNrStTwo & \href{mailto:\mailStTwo}{\mailStTwo} 
+\end{tabular}}	
+\date{}
+\maketitle
+
+\section*{Hello}
+\lipsum[1]
+
+\section{Ho}
+\lipsum[2]
+
+\section{H1}
+\lipsum[3]
+
+\section{Hello}
+\lipsum[4]
+
+\section{Ho}
+\lipsum[5]
+
+\section{H1}
+\lipsum[6]
+
+\end{document}
+
