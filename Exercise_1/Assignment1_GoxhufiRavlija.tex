@@ -1,0 +1,112 @@
+\documentclass [a4paper, 11pt] {article}
+
+%packages
+\usepackage [english] {babel}
+\usepackage [T1] {fontenc}
+\usepackage [utf8] {inputenc}
+\usepackage {graphicx}
+\usepackage {subcaption}
+\usepackage {amsmath}
+\usepackage {amssymb}
+\usepackage {amstext}
+\usepackage {amsthm}
+\usepackage {listings}
+\usepackage {tikz}
+\usepackage[
+pdftex,
+pdfauthor={Goxhufi, Driton; Ravlija, Damir},
+pdftitle={MLGV - Exercise 1 Submission},
+pdfsubject={Machine Learning in Graphics \& Vision Homework}
+]{hyperref}
+
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\usepackage{lipsum}
+\usepackage{ifthen}
+
+\pagestyle{fancy}
+
+%document configuration
+\newcommand{\courseName}{Machine Learning in Graphics \& Vision}
+\newcommand{\termYear}{Summer Term 2020}
+\newcommand{\homeworkNum}{1}
+\newcommand{\studentOne}{Driton Goxhufi}
+\newcommand{\studentTwo} {Damir Ravlija}
+\newcommand{\matrikelNrStOne}{xxxxxxx}
+\newcommand{\matrikelNrStTwo}{5503184}
+\newcommand{\mailStOne}{driton.goxhufi@student.uni-tuebingen.de}
+\newcommand{\mailStTwo}{damir.ravlija@student.uni-tuebingen.de}
+
+%other config
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\boldsymbol{#1}}
+\newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\tr}[2]{{}^{#1}T_{#2}}
+\graphicspath{{./images/}}
+
+
+\lhead{\begin{tabular}{l}
+		\courseName\\
+		\termYear \\
+		Exercise \homeworkNum
+\end{tabular}}
+\rhead{\begin{tabular}{lr}
+		\studentOne & \matrikelNrStOne \\
+		\studentTwo & \matrikelNrStTwo \\
+\end{tabular}}
+
+\begin{document}
+	
+\title{\vspace{-1.5cm}\textbf{Exercise \homeworkNum} \\ 
+	\courseName}
+\author{\begin{tabular}{lcr}
+		\studentOne & \matrikelNrStOne & \href{mailto:\mailStOne}{\mailStOne} \\
+		\studentTwo & \matrikelNrStTwo & \href{mailto:\mailStTwo}{\mailStTwo} 
+\end{tabular}}	
+\date{}
+\maketitle
+
+
+\section{Task 1}
+
+\begin{enumerate}
+	\item[(a)] The complexity of the method in subtask (a) is $O(d*n^2)$ where $d$ is the dimension of feature vector and $n$ is the number of examples.
+		
+	\item[(b)] A single vector has to be compared with \\
+	$30$ FPS $* 120$ s $= 3,600$ frames $= 3,600 * N$ vectors $= 7.2 * 10^7$ vectors \\
+	in one video, and each one of these has to be compared with all of the vectors from another video (i.e. $7.2 * 10^7$ vectors as well).\\
+	There are therefore $128 * {7.2}^2 * 10^{14}$ comparisons. Assuming that the machine can compute $3 * 10^9$ comparisons in a second, it would take $221,184,000$ s $\approx 7.0137$ years to find all matchings of the vectors between two different 2 minute long videos ($30$ FPS) using \texttt{exhaustive\_search}.
+	
+	\begin{figure}[!h]
+		\centering
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{1_1_a.png}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{1_1_b.png}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{1_1_c.png}
+			\caption{}
+		\end{subfigure}
+		\caption{Plot of results from task 1}
+	\end{figure}
+
+\item[(c)]
+	Query times in both, exhaustive and KDTree search grow linearly as the number of dimensions increases. However, KDTree is us for datasets with more dimensional vectors up more than $20$ times faster. This implies that another variable, the number of vectors in the dataset, is the source of this difference. 
+	
+	
+	
+\end{enumerate}
+	
+\end{document}
+
