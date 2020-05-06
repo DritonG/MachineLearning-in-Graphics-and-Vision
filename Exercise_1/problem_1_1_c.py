@@ -13,6 +13,9 @@ import timeit
 import problem_1_1_a_b
 
 def kdtree_search(tree, queries):
+    '''
+    Times the KDTree search given 'tree' and 'queries.'
+    '''
     start = timeit.default_timer()
 
     tree.query(dataset)

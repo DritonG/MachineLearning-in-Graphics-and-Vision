@@ -36,7 +36,6 @@ def create_dataset(N, D):
 	:returns a matrix of shape (N x D) that contains feature vectors in rows
 	'''
 	dataset = rng.random((N, D))
-	# print(dataset.shape)
 	return dataset
 
 	
@@ -65,7 +64,7 @@ def time_exhaustive_search(N, D):
 	return end - start
 
 
-# 1. a)
+# Task 1.1.a)
 # The complexity of this method is O(d*(n^2)) where d is the dimension 
 # of feature vector and n is the number of examples.
 def results_a(dimensions):
@@ -87,7 +86,7 @@ def results_a(dimensions):
 	return times
 
 
-# 1. b)
+# Task 1.1.b)
 # D = 128
 # N = 20,000
 # A single vector has to be compared with 
@@ -118,6 +117,7 @@ if __name__ == '__main__':
 
 	dimensions = [x for x in range(1, 500, 10)]
 	# Plot 1.a) to file
+	plt.figure(0)
 	plt.plot(dimensions, results_a(dimensions))
 	plt.title('Query Times')
 	plt.xlabel('dimension (D)')
@@ -126,9 +126,7 @@ if __name__ == '__main__':
 
 
 	num_vectors = [x for x in range(1, 20_000, 500)]
-	# CHECK - in the video they mention that the plot is needed as well
-	# according to the answer in forum, we should find the constant that 
-	# describes the dependency on N
+	plt.figure(1)
 	plt.plot(num_vectors, results_b(num_vectors))
 	plt.title('Query Times')
 	plt.xlabel('number of vectors (N)')

@@ -74,12 +74,16 @@ pdfsubject={Machine Learning in Graphics \& Vision Homework}
 \section{Task 1}
 
 \begin{enumerate}
-	\item[(a)] The complexity of the method in subtask (a) is $O(d*n^2)$ where $d$ is the dimension of feature vector and $n$ is the number of examples.
+	\item[(a)] The complexity of the method in subtask (a) is $O(d*n^2)$ where $d$ is the dimension of feature vector and $n$ is the number of examples. Plot of the results in figure \ref{fig:1a}).
+	
+	Code in \texttt{problem\_1\_1\_a\_b.py}.
 		
 	\item[(b)] A single vector has to be compared with \\
-	$30$ FPS $* 120$ s $= 3,600$ frames $= 3,600 * N$ vectors $= 7.2 * 10^7$ vectors \\
-	in one video, and each one of these has to be compared with all of the vectors from another video (i.e. $7.2 * 10^7$ vectors as well).\\
-	There are therefore $128 * {7.2}^2 * 10^{14}$ comparisons. Assuming that the machine can compute $3 * 10^9$ comparisons in a second, it would take $221,184,000$ s $\approx 7.0137$ years to find all matchings of the vectors between two different 2 minute long videos ($30$ FPS) using \texttt{exhaustive\_search}.
+	$30$ FPS $* 120$ s $= 3,600$ frames $= 3,600 * 20,000 = 7.2 * 10^7 (\text{or } 3,600N)$ vectors \\
+	in one video, and each one of these has to be compared with all of the vectors from another video (i.e. $7.2 * 10^7 (\text{or } 3,600N)$ vectors as well).\\
+	There are therefore $128 * {7.2}^2 * 10^{14} (\text{or } 128 * (3,600N)^2$ comparisons. Assuming that the machine can compute $3 * 10^9$ comparisons in a second, it would take $221,184,000$ s $\approx 7.0137$ years or $(0.55296 N^2 \text{ seconds})$ to find all matchings of the vectors between two different 2 minute long videos ($30$ FPS) using \texttt{exhaustive\_search}.
+	
+	Code in \texttt{problem\_1\_1\_a\_b.py}. Plot of the results in figure \ref{fig:1b}).
 	
 	\begin{figure}[!h]
 		\centering
@@ -87,26 +91,57 @@ pdfsubject={Machine Learning in Graphics \& Vision Homework}
 			\centering
 			\includegraphics[width=\textwidth]{1_1_a.png}
 			\caption{}
+			\label{fig:1a}
 		\end{subfigure}
 		\begin{subfigure}{0.4\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{1_1_b.png}
 			\caption{}
+			\label{fig:1b}
 		\end{subfigure}
-		\begin{subfigure}{0.45\textwidth}
+		\begin{subfigure}{0.4\textwidth}
 			\centering
 			\includegraphics[width=\textwidth]{1_1_c.png}
 			\caption{}
+			\label{fig:1c}
 		\end{subfigure}
 		\caption{Plot of results from task 1}
+		\label{fig:1}
 	\end{figure}
 
 \item[(c)]
 	Query times in both, exhaustive and KDTree search grow linearly as the number of dimensions increases. However, KDTree is us for datasets with more dimensional vectors up more than $20$ times faster. This implies that another variable, the number of vectors in the dataset, is the source of this difference. 
 	
+	Code in \texttt{problem\_1\_1\_c.py}. Plot of the results in \ref{fig:1c}
 	
+\end{enumerate}	
+
+\section{Task 2}
+\begin{enumerate}
+	\item[(a)] Code in \texttt{problem\_1\_2\_a.py}. Top-K accuracy for $K$ between $1$ and $10$ as expected grows with $K$ and is in the range between $0.8$ and $0.97$ (Figure \ref{fig:2a}).
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{1_2_a.png}
+		\caption{Top-K accuracy for $K = 1, 2,\dots, 10$ using the KD-tree}
+		\label{fig:2a}
+	\end{figure}
+
+	\item[(b)]	Code in \texttt{problem\_1\_2\_b.py}.
+	
+	Obtained results:
+	\begin{lstlisting}[mathescape=true]
+Precision (with "Pullover" (2) as positive):  0.8333333333333334
+Precision (with "Shirt" (6) as positive):  0.780952380952381
+------------------------------------------------------------
+Recall (with "Pullover" (2) as positive):  0.7653061224489796
+Recall (with "Shirt" (6) as positive):  0.845360824742268
+	\end{lstlisting}
 	
 \end{enumerate}
+	
+	
+	
+
 	
 \end{document}
 
