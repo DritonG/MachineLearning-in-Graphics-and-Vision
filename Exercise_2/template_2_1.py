@@ -196,7 +196,24 @@ Exercise 1d: Plot the cross entropy loss for t=1 and t=1
 '''
 #TODO: Insert
 
+f_w = np.linspace(0, 1, 200)
+loss_t_0 = -log(1 - f_w)
+loss_t_1 = -log(f_w)
+plt.figure(0)
+plt.plot(f_w, loss_t_0, c='b', label='loss for t = 0')
+plt.title('Cross entropy loss with t = 0')
+plt.xlabel('f_w')
+plt.ylabel('loss')
+plt.legend()
+plt.savefig('2_1_d_1.png', bbox_inches='tight')
 
+plt.figure(1)
+plt.plot(f_w, loss_t_1, c='r', label='loss for t = 1')
+plt.title('Cross entropy loss with t = 1')
+plt.xlabel('f_w')
+plt.ylabel('loss')
+plt.legend()
+plt.savefig('2_1_d_2.png', bbox_inches='tight')
 
 # compute test error after max_iter
 for i in range(0,100):
