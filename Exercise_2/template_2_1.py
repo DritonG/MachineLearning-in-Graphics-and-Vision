@@ -92,7 +92,9 @@ class LogisticRegression():
         Exercise 1c:    Compute the gradients given the features of all input images
                         NOTE: Don't forget to remove the second quit() command in the main program!
         '''
-        gradient = 0 # TODO: REPLACE
+        # gradient = 0 # TODO: REPLACE
+
+        gradient = np.sum((self.predict_proba(features) - labels) * features, axis=0)[:, np.newaxis]
         
         # update weights
         self.weights -= lr * gradient / examples 
@@ -187,12 +189,14 @@ print('Accuracy of initial logistic regression classifier on test set: {:.2f}'.f
 loss = logreg.compute_loss(train_img, train_label)
 print('Initialization loss {}'.format(loss))
 
-quit() ### Exercise 1c: Remove exit ###
+# quit() ### Exercise 1c: Remove exit ###
 
 '''
 Exercise 1d: Plot the cross entropy loss for t=1 and t=1
 '''
 #TODO: Insert
+
+
 
 # compute test error after max_iter
 for i in range(0,100):

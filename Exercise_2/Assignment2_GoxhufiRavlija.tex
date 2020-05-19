@@ -44,7 +44,7 @@ pdfsubject={Machine Learning in Graphics \& Vision Homework}
 
 
 %other config
-\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\renewcommand{\v}[1]{\boldsymbol{#1}}
 \newcommand{\mat}[1]{\boldsymbol{#1}}
 \newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\tr}[2]{{}^{#1}T_{#2}}
@@ -83,6 +83,31 @@ Classification accuracy of the initialized model on the test dataset is $0.5$
 Loss of the initialized model is $0.7149616252170096$.
 
 \item[(c)]
+In the first step of derivation we use the chain rule and the fact that $f_{\v{w}}'(x) = f_{\v{w}}(x)(1-f_{\v{w}}(x)$.
+\begin{align*}
+\frac{\partial L(\v{x}, t, \v{w})}{\partial \v{w}} &\stackrel{(\ref{eq:c})}{=} \frac{1}{N}\sum_{n=1}^{N}\left[-t_n \frac{1}{f_{\v{w}}(\v{x}_n)}f_{\v{w}}(\v{x}_n)(1-f_{\v{w}}(\v{x}_n))\v{x}_n + (1-t_n)\frac{1}{1-f_{\v{w}}(\v{x_n})}f_{\v{w}}(\v{x}_n)(1-f_{\v{w}}(\v{x}_n))\v{x}_n \right] \\
+&= \frac{1}{N}\sum_{n=1}^{N}\left[-t_n(1-f_{\v{w}}(\v{x}_n))\v{x}_n + (1-t_n)f_{\v{w}}(\v{x}_n)\v{x}_n \right] \\
+&= \frac{1}{N}\sum_{n=1}^{N}\left[(-t_n + t_n f_{\v{w}}(\v{x}_n) + f_{\v{w}}(\v{x}_n) - t_nf_{\v{w}}(\v{x}_n))\v{x}_n\right] \\
+&= \frac{1}{N}\sum_{n=1}^{N}\left[ f_{\v{w}}(\v{x}_n) - t_n\right]\v{x}_n
+\end{align*}
+
+\begin{enumerate}
+	\item[(1)]\label{eq:c} 
+	\begin{align*}
+	\frac{\partial f_{\v{w}}(x)}{\partial x} &= \frac{\partial}{\partial x}\left(\frac{1}{1 + e^{-\v{w}^{T}\v{x}}}\right) = \frac{e^{-\v{w}^{T}\v{x}}}{{(1 + e^{-\v{w}^{T}\v{x}})}^2} = \frac{1 + e^{-\v{w}^{T}\v{x}} - 1}{{(1 + e^{-\v{w}^{T}\v{x}})}^2} = \frac{1}{{(1 + e^{-\v{w}^{T}\v{x}})}} - \frac{1}{{(1 + e^{-\v{w}^{T}\v{x}})}^2} \\
+	&= \frac{1}{{(1 + e^{-\v{w}^{T}\v{x}})}} \left(1 - \frac{1}{{(1 + e^{-\v{w}^{T}\v{x}})}}\right) = f_{\v{w}}(\v{w}^{T}\v{x})(1 - f_{\v{w}}(\v{w}^{T}\v{x}))
+	\end{align*}
+\end{enumerate}
+
+\bigskip
+\bigskip
+\bigskip
+
+After $1,000$ iterations the loss and accuracy of the model are:
+
+	\qquad loss $= 0.3868595564299156$
+	
+	\qquad accuracy $= 0.83$
 
 
 \end{enumerate}
