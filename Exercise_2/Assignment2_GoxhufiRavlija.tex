@@ -1,0 +1,95 @@
+\documentclass [a4paper, 11pt] {article}
+
+%document configuration
+\newcommand{\courseName}{Machine Learning in Graphics \& Vision}
+\newcommand{\termYear}{Summer Term 2020}
+\newcommand{\homeworkNum}{2}
+\newcommand{\studentOne}{Driton Goxhufi}
+\newcommand{\studentTwo} {Damir Ravlija}
+\newcommand{\matrikelNrStOne}{4233242}
+\newcommand{\matrikelNrStTwo}{5503184}
+\newcommand{\mailStOne}{driton.goxhufi@student.uni-tuebingen.de}
+\newcommand{\mailStTwo}{damir.ravlija@student.uni-tuebingen.de}
+
+%packages
+\usepackage [english] {babel}
+\usepackage [T1] {fontenc}
+\usepackage [utf8] {inputenc}
+\usepackage {graphicx}
+\usepackage {subcaption}
+\usepackage {amsmath}
+\usepackage {amssymb}
+\usepackage {amstext}
+\usepackage {amsthm}
+\usepackage {listings}
+\usepackage {tikz}
+\usepackage[
+pdftex,
+pdfauthor={Goxhufi, Driton; Ravlija, Damir},
+pdftitle={MLGV - Exercise \homeworkNum Submission},
+pdfsubject={Machine Learning in Graphics \& Vision Homework}
+]{hyperref}
+
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\usepackage{lipsum}
+\usepackage{ifthen}
+
+\pagestyle{fancy}
+
+
+
+%other config
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\boldsymbol{#1}}
+\newcommand{\m}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\tr}[2]{{}^{#1}T_{#2}}
+\graphicspath{{./images/}}
+
+
+\lhead{\begin{tabular}{l}
+		\courseName\\
+		\termYear \\
+		Exercise \homeworkNum
+\end{tabular}}
+\rhead{\begin{tabular}{lr}
+		\studentOne & \matrikelNrStOne \\
+		\studentTwo & \matrikelNrStTwo \\
+\end{tabular}}
+
+\begin{document}
+	
+\title{\vspace{-1.5cm}\textbf{Exercise \homeworkNum} \\ 
+	\courseName}
+\author{\begin{tabular}{lcr}
+		\studentOne & \matrikelNrStOne & \href{mailto:\mailStOne}{\mailStOne} \\
+		\studentTwo & \matrikelNrStTwo & \href{mailto:\mailStTwo}{\mailStTwo} 
+\end{tabular}}	
+\date{}
+\maketitle
+
+
+\section{Task 1}
+\begin{enumerate}
+\item[(a)]
+Classification accuracy of the initialized model on the test dataset is $0.5$
+
+
+\item[(b)]
+Loss of the initialized model is $0.7149616252170096$.
+
+\item[(c)]
+
+
+\end{enumerate}
+	
+	
+	
+
+	
+\end{document}
+

@@ -1,5 +1,6 @@
 # Added later
 *.npy
+*.gz
 
 # Prerequisites
 *.d
