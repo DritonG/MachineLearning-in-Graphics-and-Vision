@@ -166,6 +166,8 @@ In the extreme case of learning rate set to 1, both loss and accuracy are extrem
 \end{figure}
 
 \item[(f)]
+Based on our plots, the logistic regression model learns something about the shoulder parts to distinguish the coat and something about the sleeves to distinguish the pullover.
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{img/2_1_f.png}
@@ -182,7 +184,7 @@ In the extreme case of learning rate set to 1, both loss and accuracy are extrem
 
 
 \item[(g)]
-Inference step of this learning approach is more efficient than the nearest neighbors search which has to find the $k$ nearest neighbors. Another advantage of this learning approach is that it returns the probability of how confident it is that the value belongs to a certain class.
+Inference step of this learning approach is more efficient than the nearest neighbors search which has to find the $k$ nearest neighbors. Another advantage of this learning approach is that it returns the probability of how confident it is that the value belongs to a certain class. The Nearest Neighbor algorithm is non-parametric, hence it is prone to high dimensional data(due to "single" param L2-distance messure), in contrast learning approaches are able to handle more complex(high dim) problems.
 
 \end{enumerate}
 	
