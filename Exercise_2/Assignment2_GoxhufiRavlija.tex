@@ -113,23 +113,76 @@ After $1,000$ iterations the loss and accuracy of the model are:
 
 	
 \item[(d)]
+Since $f_{\v{w}}$ represents the class posterior probability $p(c_1|\v{x})$, the loss is minimal for $t = 1$ when this probability is the highest (i.e. $f_{\v{w}} = 1$). As the confidence of the model decreases, the loss function grows up to infinity which corresponds to the case when the model is confident in the wrong class, i.e. assigns $f_{\v{w}} = 0$ (see Figure (\ref{fig:1}).  
+
+On the other hand, if the label $t = 0$, the loss is minimized when $p(c_2|\v{x}) = 1 - p(c_1|\v{x}) = 1 - f_{\v{w}}$ is maximized which is achieved when $f_{\v{w}} = 0$. The loss is higher when the model assigns higher probability to the other class, and grows to infinity as $f_{\v{w}}$ nears 1. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/2_1_d.png}
+	\caption{Plot of results from task (d)}
+	\label{fig:1}
+\end{figure}
+
+\item[(e)]
+We observe that the lower the learning rate is, the increase in accuracy and loss decrease are slower but more stable over time. Even after $1,000$ iterations, smaller learning rates show increasing accuracy and decreasing loss trends, which implies that they would benefit from more iterations. Optimal learning rate that shows the best combination of stability and convergence speed is $0.1$. Both loss and accuracy achieve the best values when the learning rate is set to $0.1$.  
+
+In the extreme case of learning rate set to 1, both loss and accuracy are extremely unstable. This instability probably arises from overly large steps that the gradient descent makes and which causes it to overstep the minima. Conversely, in case of the smallest learning rate $0.0001$ the accuracy of the model starts increasing only after around $200$ iterations.
+
 \begin{figure}[!h]
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/2_1_d_1.png}
-		\caption{With loss $t = 0$}
-		\label{fig:1a}
+		\includegraphics[width=\textwidth]{img/2_1_e_0-0001.png}
+		\caption{Learning rate set to $0.0001$}
+		\label{fig:2a}
 	\end{subfigure}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{img/2_1_d_2.png}
-		\caption{With loss $t = 1$}
-		\label{fig:1b}
+		\includegraphics[width=\textwidth]{img/2_1_e_0-001.png}
+		\caption{Learning rate set to $0.001$}
+		\label{fig:2b}
 	\end{subfigure}
-	\caption{Plot of results from task (d)}
-	\label{fig:1}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/2_1_e_0-01.png}
+		\caption{Learning rate set to $0.01$}
+		\label{fig:2c}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/2_1_e_0-1.png}
+		\caption{Learning rate set to $0.1$}
+		\label{fig:2d}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/2_1_e_1-0.png}
+		\caption{Learning rate set to $1$}
+		\label{fig:2e}
+	\end{subfigure}
+	\caption{Plot of results from task (e)}
+	\label{fig:2}
 \end{figure}
+
+\item[(f)]
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/2_1_f.png}
+	\caption{Task f part 1}
+	\label{fig:task-f}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/2_1_f_1.png}
+	\caption{Task f part 2}
+	\label{fig:task-f-2}
+\end{figure}
+
+
+\item[(g)]
+Inference step of this learning approach is more efficient than the nearest neighbors search which has to find the $k$ nearest neighbors. Another advantage of this learning approach is that it returns the probability of how confident it is that the value belongs to a certain class.
 
 \end{enumerate}
 	
