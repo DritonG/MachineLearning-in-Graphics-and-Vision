@@ -201,19 +201,14 @@ loss_t_0 = -log(1 - f_w)
 loss_t_1 = -log(f_w)
 plt.figure(0)
 plt.plot(f_w, loss_t_0, c='b', label='loss for t = 0')
-plt.title('Cross entropy loss with t = 0')
-plt.xlabel('f_w')
-plt.ylabel('loss')
-plt.legend()
-plt.savefig('2_1_d_1.png', bbox_inches='tight')
-
-plt.figure(1)
 plt.plot(f_w, loss_t_1, c='r', label='loss for t = 1')
-plt.title('Cross entropy loss with t = 1')
+plt.title('Cross entropy loss')
 plt.xlabel('f_w')
 plt.ylabel('loss')
 plt.legend()
-plt.savefig('2_1_d_2.png', bbox_inches='tight')
+plt.savefig('2_1_d.png', bbox_inches='tight')
+
+
 
 # compute test error after max_iter
 for i in range(0,100):
@@ -230,9 +225,46 @@ for i in range(0,100):
 Exercise 1e: Plot the learning curves (losses and accs) using different learning rates (1e-4,1e-3,1e-2,1e-1,1e-0)
 '''
 losses = logreg.losses
-# TODO: INSERT
+TODO: INSERT
+fig, ax1 = plt.subplots()
+fig.suptitle(f'Learning curve of lr = {logreg.lr}')
+
+ax1.set_xlabel('iteration')
+ax1.set_ylabel('loss')
+ax1.plot(np.arange(len(losses)), losses, c='b', label='loss')
+
+# Add the second axis with another scale for accuracy
+ax2 = ax1.twinx()
+
+ax2.set_ylabel('accuracy')
+# Account for the initial accuracy
+ax2.plot(np.arange(0, 1_000, 10), accs[1:], c='r', label='accuracy')
+
+fig.legend()
+fig.savefig(f'2_1_e_{logreg.lr}.png', bbox_inches='tight')
+
 
 '''
 Exercise 1f: Plot the optimized weights and weights.*img (.* denotes element-wise multiplication)
 '''
-# TODO: INSERT
+# TODO: 
+
+
+# plt.figure(2)
+# plt.imshow(logreg.weights.reshape(28, 28))
+# plt.savefig('2_1_f.png', bbox_inches='tight')
+
+
+# img_class_1 = test_img[np.where(test_label == 0)[0][0:5]].reshape(5, 28, 28)
+# img_class_2 = test_img[np.where(test_label == 1)[0][0:5]].reshape(5, 28, 28)
+
+# fig, ax = plt.subplots(5, 2)
+# fig.figsize = (15, 5)
+# print(img_class_1[0].reshape(1, -1).shape)
+# for i in range(5):
+#     ax[i,0].imshow(logreg.weights.reshape(28, 28) * img_class_1[i])
+#     ax[i,0].set_title(logreg.predict_proba(img_class_1[i].reshape(1, -1)))
+#     ax[i,1].imshow(logreg.weights.reshape(28, 28) * img_class_2[i])
+#     ax[i,1].set_title(logreg.predict_proba(img_class_2[i].reshape(1, -1)))
+
+# plt.savefig('2_1_f_1.png', bbox_inches='tight')
