@@ -225,7 +225,11 @@ for i in range(0,100):
 Exercise 1e: Plot the learning curves (losses and accs) using different learning rates (1e-4,1e-3,1e-2,1e-1,1e-0)
 '''
 losses = logreg.losses
-TODO: INSERT
+# TODO: INSERT
+
+# Depends on the number of iterations set above in the training loop: 100 iteration used in exercise 1 e)
+# and 10 iterations used in exercise 1 f)
+
 fig, ax1 = plt.subplots()
 fig.suptitle(f'Learning curve of lr = {logreg.lr}')
 
@@ -243,12 +247,16 @@ ax2.plot(np.arange(0, 1_000, 10), accs[1:], c='r', label='accuracy')
 fig.legend()
 fig.savefig(f'2_1_e_{logreg.lr}.png', bbox_inches='tight')
 
+# plt.show()
+
 
 '''
 Exercise 1f: Plot the optimized weights and weights.*img (.* denotes element-wise multiplication)
 '''
 # TODO: 
 
+# Depends on the number of iterations set above in the training loop: 100 iteration used in exercise 1 e)
+# and 10 iterations used in exercise 1 f)
 
 # plt.figure(2)
 # plt.imshow(logreg.weights.reshape(28, 28))
@@ -258,13 +266,24 @@ Exercise 1f: Plot the optimized weights and weights.*img (.* denotes element-wis
 # img_class_1 = test_img[np.where(test_label == 0)[0][0:5]].reshape(5, 28, 28)
 # img_class_2 = test_img[np.where(test_label == 1)[0][0:5]].reshape(5, 28, 28)
 
-# fig, ax = plt.subplots(5, 2)
-# fig.figsize = (15, 5)
-# print(img_class_1[0].reshape(1, -1).shape)
+# fig, ax = plt.subplots(2, 5, figsize=(20, 8))
 # for i in range(5):
-#     ax[i,0].imshow(logreg.weights.reshape(28, 28) * img_class_1[i])
-#     ax[i,0].set_title(logreg.predict_proba(img_class_1[i].reshape(1, -1)))
-#     ax[i,1].imshow(logreg.weights.reshape(28, 28) * img_class_2[i])
-#     ax[i,1].set_title(logreg.predict_proba(img_class_2[i].reshape(1, -1)))
+#     # from pullover images
+#     ax[0,i].imshow(logreg.weights.reshape(28, 28) * img_class_1[i])
+#     posterior_pullover = logreg.predict_proba(img_class_1[i].reshape(1, -1))
+#     posterior_coat = 1 - posterior_pullover
+#     logit_pullover = posterior_pullover / posterior_coat
+#     ax[0,i].set_title(f'{logit_pullover.item():.2f}', size=18)
+#     ax[0,i].axis('off')
+
+#     # from coat images
+#     ax[1,i].imshow(logreg.weights.reshape(28, 28) * img_class_2[i])
+#     posterior_pullover = logreg.predict_proba(img_class_2[i].reshape(1, -1))
+#     posterior_coat = 1 - posterior_pullover
+#     logit_coat = posterior_coat / posterior_pullover
+#     ax[1,i].set_title(f'{logit_coat.item():.2f}', size=18)
+#     ax[1,i].axis('off')
+
 
 # plt.savefig('2_1_f_1.png', bbox_inches='tight')
+# # plt.show()
