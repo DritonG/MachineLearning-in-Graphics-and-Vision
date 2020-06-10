@@ -98,8 +98,8 @@ fmnist_noisy_test = NoisyFashionMNIST(fmnist_test)
 
 # TODO : Batch and shuffle
 # Batch and prepare
-train_loader = []
-test_loader = []
+train_loader = torch.utils.data.DataLoader(fmnist_noisy_train, batch_size=batch_size, shuffle=True)
+test_loader = torch.utils.data.DataLoader(fmnist_noisy_test, batch_size=batch_size, shuffle=True)
 
 # Check output of autoencoder
 
@@ -107,7 +107,7 @@ test_loader = []
 parameters = list(model.parameters())
 
 #TODO: set optimizer
-optimizer = []
+optimizer = torch.optim.Adam(parameters, lr=learning_rate)
 
 for i in range(epoch):
 
