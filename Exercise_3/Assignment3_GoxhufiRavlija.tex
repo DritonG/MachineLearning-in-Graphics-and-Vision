@@ -122,7 +122,7 @@ accuracy train 0.9082844034830729
 accuracy test 0.891600112915039\\
 \\
 
-We then increased the size of the network in a fashion similar to VGG network. We used stride 2 to speed up training and decrease the number of features while simultaneously incresing the number of filters. To increase the training speed we added batch normalization layers. The following network had the highest accuracy of $0.9108000755310058$ on the validation set (the corresponding accuracy curves are in Figure \ref{fig:2}):
+We then increased the size of the network in a fashion similar to VGG network and we changed the optimizer to Adam as it seemed to train better.4 We used stride 2 to speed up training and decrease the number of features while simultaneously incresing the number of filters. To increase the training speed we added batch normalization layers. The following network had the highest accuracy of $0.9108000755310058$ on the validation set (the corresponding accuracy curves are in Figure \ref{fig:2}):
 
 \begin{lstlisting}
 ----------------------------------------------------------------
