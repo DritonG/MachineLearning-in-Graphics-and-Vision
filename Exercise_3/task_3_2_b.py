@@ -25,7 +25,26 @@ class NoisyFashionMNIST(Dataset):
 
     # TODO: fill
 
-    pass
+    # pass
+    
+     def __init__(self, incoming_df):
+
+        super(NoisyFashionMNIST, self).__init__()
+        self.incoming_df = incoming_df
+
+
+    def __len__(self):
+        return len(self.incoming_df)
+
+    def __getitem__(self, idx):
+
+        image = self.incoming_df.data[idx] / 255.0
+
+        noise = torch.rand([28, 28], dtype=torch.float)
+
+        noisy_image = noise + image
+
+        return {'image': image, 'noisy_image': noisy_image}
 
 
 class Model(nn.Module):
@@ -34,12 +53,35 @@ class Model(nn.Module):
         super(Model, self).__init__()
 
         #TODO : model
+        self.convLayer = nn.Sequential(
+            nn.Conv2d(1, 16, 3, stride=2, padding=1),
+            nn.ReLU(),
+            
+            nn.Conv2d(16, 16, 3, stride=2, padding=1),
+            nn.ReLU(),
+            
+            nn.Conv2d(16, 16, 3, stride=1, padding=1),
+            nn.ReLU()
+        )
+        self.transposeConvLayer = nn.Sequential(
+            nn.ConvTranspose2d(16, 16, 3, stride=2, padding=1),
+            nn.ReLU(),
+
+            nn.ConvTranspose2d(16, 16, 3, stride=2, padding=1),
+            nn.ReLU(),
+
+            nn.Conv2d(16, 16, 3, stride=1, padding=1)
+        )
 
     def forward(self, x):
 
         #TODO: fill forward model
 
-        pass
+        # pass
+        
+        out = self.convLayer(x)
+        out = self.transposeConvLayer(out)
+        return out
 
 model = Model().to(device=device)
 
