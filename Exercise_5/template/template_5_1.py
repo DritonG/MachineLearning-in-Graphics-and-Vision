@@ -1,7 +1,7 @@
 import numpy as np
 import utils
 
-OUT_PATH = 'out/pca'
+OUT_PATH = 'out/pca/sneaker/'
 
 def main():
     """The main function of this script."""
@@ -12,6 +12,19 @@ def main():
     # select an appropriate subset of x_train / x_test
     x_train, y_train = utils.load_fashion_mnist('train')
     x_test, y_test = utils.load_fashion_mnist('test')
+
+    # for EXERCISE 5.1e
+    # consider only the class 'Sneaker' --> ID = 7
+    labels_mask = [7]
+    train_mask = np.zeros(len(y_train), dtype=bool)
+    test_mask = np.zeros(len(y_test), dtype=bool)
+    train_mask[(y_train == labels_mask[0])] = 1 # | (y_train == labels_mask[1])] = 1
+    test_mask[(y_test == labels_mask[0])] = 1 # | (y_test == labels_mask[1])] = 1
+    x_train = x_train[train_mask, :]
+    x_test = x_test[test_mask, :]
+#    y_train = np.array([1.0 if x == labels_mask[0] else 0.0 for x in x_train[train_mask]])[:, np.newaxis]
+#    y_test = np.array([1.0 if x == labels_mask[0] else 0.0 for x in y_test[test_mask]])[:, np.newaxis]
+
 
     mean, s, V = compute_pca(x_train.numpy())
 
